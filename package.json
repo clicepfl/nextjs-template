@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky && git submodule update --init",
+    "load-directus": "sh directus-config/load.sh",
+    "save-directus": "sh directus-config/save.sh",
+    "save-directus-data": "sh directus-config/save-data.sh",
+    "populate-directus": "sh directus-config/populate.sh"
   },
   "dependencies": {
     "@directus/sdk": "^18.0.0",
