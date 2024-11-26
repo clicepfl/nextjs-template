@@ -12,7 +12,9 @@ COPY package.json package-lock.json ./
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm ci --only=production --ignore-scripts
 
 COPY . .
-RUN npm run build
+
+# Build without pre-rendering. This would cause issue as the build does not have access to directus.
+RUN npm run build -- --experimental-build-mode compile
 
 # switch to unprivileged user from node base image
 RUN chown -R node .
