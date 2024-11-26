@@ -22,18 +22,18 @@ export function locale(locale?: string | { locale?: string }) {
 export function getTranslation<
   T extends {
     languages_code?: string | { code?: string | undefined } | null | undefined;
-  }
+  },
 >(
   model: {
     translations?: (number | T)[] | null;
   },
   loc: string | undefined,
-  canFail: boolean = false
+  canFail: boolean = false,
 ): T {
   const l = locale(loc);
 
   function getLang(
-    language_code: string | { code?: string | undefined } | null | undefined
+    language_code: string | { code?: string | undefined } | null | undefined,
   ): string | null {
     return language_code
       ? typeof language_code === "string"
@@ -44,7 +44,7 @@ export function getTranslation<
 
   if (model.translations) {
     let translations = model.translations.filter(
-      (t) => typeof t !== "number"
+      (t) => typeof t !== "number",
     ) as T[];
 
     let res =
@@ -60,7 +60,7 @@ export function getTranslation<
 
   if (!canFail) {
     console.error(
-      `Could not find translations for locale ${l} in ${JSON.stringify(model)}`
+      `Could not find translations for locale ${l} in ${JSON.stringify(model)}`,
     );
   }
   throw new Error("Missing translation in queried data");

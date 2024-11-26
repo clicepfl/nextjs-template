@@ -29,7 +29,7 @@ export function directus() {
  * @returns the full URL of the image, if any
  */
 export function getDirectusImageUrl(
-  image: string | components["schemas"]["Files"] | null | undefined
+  image: string | components["schemas"]["Files"] | null | undefined,
 ): string | undefined {
   console.log(JSON.stringify(image, null, 2));
   return image
