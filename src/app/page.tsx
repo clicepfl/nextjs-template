@@ -1,4 +1,3 @@
-import styles from "@/styles/Home.module.scss";
 import { directus } from "@/directus";
 import { readSingleton } from "@directus/sdk";
 import { getTranslation, queryTranslations } from "@/locales";
@@ -14,13 +13,13 @@ export default async function Home() {
   const translations = getTranslation(association, "en");
 
   return (
-    <main className={styles.main}>
+    <main>
       <p></p>
-      <div className={styles.center}>
+      <div>
         <DirectusImage img={translations.banner} sizes="50rem" cover />
       </div>
 
-      <pre className={styles.markdown}>{translations.description}</pre>
+      <pre>{translations.description}</pre>
     </main>
   );
 }

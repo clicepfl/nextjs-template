@@ -1,4 +1,4 @@
-import "@/styles/globals.scss";
+import "@/styles/style.scss";
 
 export const metadata = {
   title: "Next.js",
